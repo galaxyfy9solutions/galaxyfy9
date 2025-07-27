@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALAXYFY 9 SOLUTIONS - Innovating Tomorrow's Technology</title>
+    <link rel="icon" type="image/png" href="favicon2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for Inter font and general body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Dark slate gray text */
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light gray track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa; /* Blue thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6; /* Darker blue on hover */
+        }
+
+        /* Keyframe animations for content */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up.delay-200 { animation-delay: 0.2s; }
+        .animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
+
+        /* Styles for Particles.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Below content, above background color/gradient */
+        }
+        /* Ensure the hero content is above the particles */
+        .hero-content-wrapper {
+            position: relative; /* Ensure z-index works on content */
+            z-index: 10;
+        }
+        /* The main hero section needs overflow-hidden to clip particles */
+        #home {
+            overflow: hidden; /* Added to clip particles if they go outside */
+        }
+
+        /* Adjust hero section min-height for better mobile viewing */
+        @media (max-width: 767px) {
+            #home {
+                min-height: 75vh; /* Adjust as needed for smaller screens */
+                padding-top: 10rem; /* Give space for fixed header */
+                padding-bottom: 5rem;
+            }
+            .hero-content-wrapper {
+                margin-top: -3rem; /* Pull content up slightly if needed */
+            }
+        }
+        /* Smooth transition for hidden elements */
+        .collapsible-content {
+            transition: max-height 0.7s ease-out, opacity 0.7s ease-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .collapsible-content.expanded {
+            max-height: 1000px; /* Needs to be larger than max possible height of content */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold tracking-wide flex items-center group" aria-label="GALAXYFY 9 SOLUTIONS Home">
+                <i class="fas fa-rocket text-blue-400 mr-2 group-hover:animate-bounce"></i>
+                <span class="group-hover:text-blue-200 transition duration-300">GALAXYFY 9 SOLUTIONS</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-blue-200 transition duration-300 text-lg font-medium">Home</a>
+                <a href="#about" class="hover:text-blue-200 transition duration-300 text-lg font-medium">About Us</a>
+                <a href="#services" class="hover:text-blue-200 transition duration-300 text-lg font-medium">Services</a>
+                <a href="#contact" class="hover:text-blue-200 transition duration-300 text-lg font-medium">Contact</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open mobile menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-800 py-4">
+            <a href="#home" class="block px-6 py-3 text-lg font-medium hover:bg-blue-700 transition duration-300">Home</a>
+            <a href="#about" class="block px-6 py-3 text-lg font-medium hover:bg-blue-700 transition duration-300">About Us</a>
+            <a href="#services" class="block px-6 py-3 text-lg font-medium hover:bg-blue-700 transition duration-300">Services</a>
+            <a href="#contact" class="block px-6 py-3 text-lg font-medium hover:bg-blue-700 transition duration-300">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative bg-gradient-to-br from-blue-600 to-indigo-800 text-white py-32 md:py-48 flex items-center justify-center min-h-screen lg:min-h-screen-75 overflow-hidden">
+            <div id="particles-js"></div>
+
+            <div class="absolute inset-0 bg-black opacity-30 z-0"></div>
+
+            <div class="container mx-auto px-6 text-center hero-content-wrapper">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                    Innovating Tomorrow's Technology, Today.
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 opacity-90 animate-fade-in-up delay-200">
+                    Your trusted partner for cutting edge IT solutions in Hyderabad and beyond.
+                </p>
+                <a href="#services" class="bg-white text-blue-700 hover:bg-blue-100 px-8 py-4 rounded-full text-lg font-semibold shadow-xl transition duration-300 transform hover:scale-105 hover:shadow-2xl animate-fade-in-up delay-400">
+                    Explore Our Services
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">About GALAXYFY 9 SOLUTIONS</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Vision" class="rounded-xl shadow-lg transform hover:scale-102 transition duration-300 object-cover w-full h-auto max-h-[400px]">
+                    </div>
+                    <div class="md:w-1/2 text-lg leading-relaxed text-gray-700">
+                        <p class="mb-6">
+                            GALAXYFY 9 SOLUTIONS is an innovative IT services and consulting company headquartered in Hyderabad, India. Established in 2020, the company has rapidly grown to become a recognized player in the digital transformation landscape.
+                        </p>
+
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+                            <i class="fas fa-bullseye text-blue-500 mr-3"></i> Our Mission
+                        </h3>
+                        <p class="mb-6">
+                            Our mission is to empower businesses with cutting-edge technology solutions that drive innovation, enhance efficiency, and foster sustainable growth. We aim to be a trusted partner in their digital transformation journey, delivering measurable value and impactful results.
+                        </p>
+
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+                            <i class="fas fa-eye text-blue-500 mr-3"></i> Our Vision
+                        </h3>
+                        <p class="mb-6">
+                            We envision a future where technology is a seamless extension of human potential, enabling organizations to achieve unprecedented levels of success. GALAXYFY 9 SOLUTIONS strives to be at the forefront of this evolution, recognized globally for our pioneering solutions and unwavering commitment to client success.
+                        </p>
+
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+                            <i class="fas fa-handshake text-blue-500 mr-3"></i> Our Values
+                        </h3>
+                        <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+                            <li><strong>Innovation:</strong> Continuously exploring and adopting new technologies to deliver creative and future-proof solutions.</li>
+                            <li><strong>Client-Centricity:</strong> Placing our clients' needs at the core of everything we do, ensuring their success is our priority.</li>
+                            <li><strong>Excellence:</strong> Committing to the highest standards of quality, professionalism, and continuous improvement.</li>
+                            <li><strong>Integrity:</strong> Operating with honesty, transparency, and ethical conduct in all our interactions.</li>
+                            <li><strong>Collaboration:</strong> Fostering a team-oriented environment where diverse talents come together to achieve common goals.</li>
+                        </ul>
+
+                        <p class="mb-6">
+                            We specialize in a range of services including Custom Software Development, Cloud Computing Solutions, Digital Transformation Consulting, and Data Analytics. Our company prides itself on its agile methodologies, client-centric approach, and a strong emphasis on leveraging cutting-edge technologies to deliver impactful business solutions.
+                        </p>
+                        <p class="mb-6">
+                            With a workforce of over 50 employees in its Hyderabad office, GALAXYFY 9 SOLUTIONS aims to foster a culture of continuous learning, collaboration, and excellence. As a relatively young and growing organization, our approach to human resource practices, particularly in the realm of Quality of Work Life, is crucial for attracting and retaining top talent in Hyderabad's competitive IT market.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-blue-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Our Core Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Custom Software Development</h3>
+                        <p class="text-gray-600 text-center">
+                            We design and build tailored software solutions using a variety of robust technologies including Java, Python, .NET, and modern JavaScript frameworks like React, Angular, and Vue.js. Our agile development process emphasizes rapid iteration and close collaboration to meet your exact business requirements, whether it's a web application to streamline operations or a complex enterprise system.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Cloud Solutions & DevOps</h3>
+                        <p class="text-gray-600 text-center">
+                            Harness the scalability and flexibility of the cloud with our expertise in AWS, Azure, and Google Cloud Platform. We provide end-to-end cloud services, from strategic cloud migration planning and secure infrastructure setup to implementing cutting-edge DevOps practices. This includes continuous integration and continuous delivery (CI/CD) pipelines, automated testing, and infrastructure as code, leading to faster deployments, improved reliability, and optimized resource utilization.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Data Analytics & AI</h3>
+                        <p class="text-gray-600 text-center">
+                            Transform your raw data into valuable insights with our comprehensive data analytics services. We leverage tools like Power BI, Tableau, and Python libraries (Pandas, NumPy, Scikit-learn) to perform data mining, develop insightful dashboards, and build intelligent AI-powered applications for predictive modeling, automation, and enhanced decision-making.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Cybersecurity Services</h3>
+                        <p class="text-gray-600 text-center">
+                            Safeguard your digital assets and reputation against ever-evolving cyber threats with our robust cybersecurity services. We offer thorough vulnerability assessments, rigorous penetration testing, proactive threat detection and incident response, and implementation of robust security protocols. Our solutions cover network security, data encryption, identity and access management (IAM), and compliance with industry regulations, building a strong and resilient security posture for your organization.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Mobile App Development</h3>
+                        <p class="text-gray-600 text-center">
+                            Reach and engage your audience wherever they are with our expertly crafted mobile applications. We specialize in both native (iOS with Swift/Objective-C, Android with Kotlin/Java) and cross-platform (React Native, Flutter) development. Our process includes meticulous UI/UX design, rigorous testing, and seamless deployment to ensure a user-friendly interface, high performance, and a secure experience that drives user adoption and business growth.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-100 group">
+                        <div class="text-blue-600 text-5xl mb-6 text-center group-hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">IT Consulting & Strategy</h3>
+                        <p class="text-gray-600 text-center">
+                            Navigate the complexities of the modern IT landscape with strategic guidance from our experienced consultants. We partner with you to develop robust technology roadmaps, optimize IT infrastructure, and implement digital transformation initiatives. Our expertise spans enterprise architecture, project management, vendor selection, and IT governance, ensuring your technology investments are aligned with your business objectives and deliver a strong return on investment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-blue-700">Get in Touch</h2>
+                <div class="max-w-3xl mx-auto bg-blue-50 p-10 rounded-xl shadow-lg border border-blue-100">
+                    <p class="text-center text-lg mb-8 text-gray-700">
+                        Have a project in mind or just want to say hello? Fill out the form below or reach us directly.
+                    </p>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="you@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 text-sm font-semibold mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="Project Inquiry" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">Your Message</label>
+                            <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="Tell us about your project or query..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Send Message
+                            </button>
+                        </div>
+                        <div id="form-message" class="mt-4 text-center text-sm font-medium hidden"></div>
+                    </form>
+
+                    <div class="mt-12 text-center text-gray-700">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700">Our Location</h3>
+                        <p class="text-lg mb-2"><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Hyderabad, India</p>
+                        <p class="text-lg mb-2"><i class="fas fa-envelope text-blue-500 mr-2"></i>support@galaxyfy9.com</p>
+                        <p class="text-lg mb-2"><i class="fas fa-envelope text-blue-500 mr-2"></i>galaxyfy9@gmail.com</p>
+                        <p class="text-lg"><i class="fas fa-phone-alt text-blue-500 mr-2"></i>+91 6304888410</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">GALAXYFY 9 SOLUTIONS</h3>
+                    <p class="text-gray-400">Innovating Tomorrow's Technology</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/galaxy956" class="text-gray-400 hover:text-white transition duration-300 text-2xl" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/groups/4027900dcrt456/" class="text-gray-400 hover:text-white transition duration-300 text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagm.com/zunaria_shaa_168rdhy5678/" class="text-gray-400 hover:text-white transition duration-300 text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-gray-500 text-sm">
+                &copy; <span id="current-year"></span> GALAXYFY 9 SOLUTIONS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
